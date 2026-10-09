@@ -1,1 +1,0 @@
-# andrej_qa-engineering-portfolio
