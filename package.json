@@ -1,0 +1,12 @@
+{
+  "name": "qa-engineering-portfolio",
+  "private": true,
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "PLAYWRIGHT_HTML_OUTPUT_DIR=\"playwright-reports/$(date +%Y-%m-%d_%H-%M-%S)\" PLAYWRIGHT_HTML_OPEN=never playwright test --reporter=list,html",
+    "test:stability": "PLAYWRIGHT_HTML_OUTPUT_DIR=\"playwright-reports/$(date +%Y-%m-%d_%H-%M-%S)\" PLAYWRIGHT_HTML_OPEN=never playwright test --repeat-each=10 --workers=${STABILITY_WORKERS:-3} --retries=0 --reporter=list,html"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0"
+  }
+}
