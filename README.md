@@ -11,6 +11,7 @@ A small Playwright and TypeScript project for practicing test automation and exp
 | Checkout review | Two item prices, their subtotal, and total = subtotal + tax | Incorrect charges have direct customer impact. |
 | Order completion | Confirmation, PDF download, and return to Products | Customers need evidence of a completed order and a way back to shopping. |
 | Navigation | The All Items menu option returns from the cart to Products | Customers should be able to recover their place in the store. |
+| HTTP smoke | The home page responds with HTTP 200 and HTML content | A deployment or availability issue can block every browser flow. |
 
 The checkout total receives a stronger assertion than a simple visibility check because a displayed but incorrect price is still a defect. This is a small example of risk-based test selection.
 
@@ -32,4 +33,4 @@ The GitHub Actions workflow runs the tests on pushes and pull requests. A failin
 
 ## Scope
 
-SauceDemo is an external demo site, so changes or outages there can affect these tests. The suite currently covers browser UI behavior; API and mobile automation are future modules.
+SauceDemo is an external demo site, so changes or outages there can affect these tests. The HTTP smoke test uses Playwright's request fixture and does not launch a browser. It checks page availability, not a business API. The inspected login, cart, and checkout flow made no Fetch/XHR requests, so genuine API and mobile automation remain future modules.
